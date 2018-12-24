@@ -1,9 +1,8 @@
 # Open Broadcaster Software - Instant Replay
 ![OBS Instant Replay Preview](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_preview.PNG)
 
-OBS Instant Replay is a script for Open Broadcaster Software which can be used to display Instant replay as Picture-in-picture within the scene.
-
-Optionally, you can let viewers trigger instant replay using a chat command (Script for *Streamlabs Chatbot* included).
+OBS Instant Replay is a script for Open Broadcaster Software which can be used to display Instant replay as Picture-in-picture within the scene.  
+Optionally, you can let viewers trigger instant replay using a chat command (Script for *Streamlabs Chatbot* included).  
 
 *obs-instant-replay is based on instant-replay.lua script developed by OBS*
 
