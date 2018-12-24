@@ -1,0 +1,41 @@
+﻿{
+    "Command": {
+        "group": "Core", 
+        "label": "Command", 
+        "tooltip": "The trigger command", 
+        "type": "textbox", 
+        "value": "!replay"
+    }, 
+    "Cooldown": {
+        "group": "Core", 
+        "label": "Cooldown (seconds)", 
+        "max": 600, 
+        "min": 0, 
+        "ticks": 1, 
+        "tooltip": "How long the command should go on cooldown for", 
+        "type": "slider", 
+        "value": 30.0
+    }, 
+    "Permission": {
+        "group": "Core", 
+        "items": [
+            "everyone", 
+            "moderator", 
+            "subscriber", 
+            "user_specific", 
+            "editor"
+        ], 
+        "label": "Permission", 
+        "tooltip": "Who is able to use the command", 
+        "type": "dropdown", 
+        "value": "moderator"
+    },
+    "Info": {
+        "group": "Core", 
+        "label": "Info", 
+        "tooltip": "This field should only be filled when using the user_specific permission.", 
+        "type": "textbox", 
+        "value": ""
+    }, 
+    "output_file": "settings.json"
+}
