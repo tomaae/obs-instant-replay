@@ -9,9 +9,11 @@ Optionally, you can let viewers trigger instant replay using a chat command (Scr
 # OBS Instant replay installation
 1. Copy "obs-instant-replay.lua" into OBS scripts directory (Usually "C:\Program Files (x86)\obs-studio\data\obs-plugins\frontend-tools\scripts\")  
 
-2. In OBS main menu, open "Tools">"Scripts"  
+2. Add script to OBS  
+(1) In OBS main menu, open "Tools">"Scripts"  
+![Open scripts window](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_scripts_open.png)  
+(2) Click "+" button and add script "obs-instant-replay.lua"  
 *Do not change any parameters yet.*  
-![Open scripts window](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_scripts_open.png)
 
 3. Enable replay buffer in OBS  
 (1) In OBS Settings under "Output", select "Replay Buffer" tab  
@@ -51,10 +53,12 @@ In OBS Settings under "Hotkeys":
 (2) Resize sources as needed.  
 
 9. In OBS main menu, open "Tools">"Scripts" and configure obs-instant-replay  
-**Replay Source**: Set to replay scene (Named "Replay" in this guide)  
+**Enable**: Check to enable  
+**Replay Scene**: Set to replay scene (Named "Replay" in this guide)  
 **Media Source**: Set to media source within replay scene (Named "Replay Media Player" in this guide)  
 **Replay duration**: Should match maximum replay time as set for replay buffer (As configured on step 3.3. in this guide)  
 *After applying settings, all sources in "Replay" scene will become invisible.*  
+![Configure script](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_scripts_config.png)
 
 # Streamlabs Chatbot script installation
 *Streamlabs Chatbot script is used only to let viewers/moderators trigger replay. If you do not require this functionality, you will not need this.*
