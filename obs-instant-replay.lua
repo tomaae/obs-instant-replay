@@ -1,4 +1,5 @@
 obs         = obslua
+script_enabled = false
 source_name = ""
 source_scene_name = ""
 source_scene_time = 20
@@ -114,6 +115,10 @@ function obs_instant_replay(pressed)
 		return
 	end
 	
+	if script_enabled == false then
+		return
+	end
+	
 	if replaying == true then
 		return
 	end
@@ -147,6 +152,7 @@ function script_update(settings)
 	source_name = obs.obs_data_get_string(settings, "source")
 	source_scene_name = obs.obs_data_get_string(settings, "source_scene")
 	source_scene_time = obs.obs_data_get_int(settings, "source_time")
+	script_enabled = obs.obs_data_get_bool(settings, "script_enabled")
 end
 
 -- A function named script_description returns the description shown to
@@ -159,6 +165,8 @@ end
 -- can change for the entire script module itself
 function script_properties()
 	props = obs.obs_properties_create()
+	
+	obs.obs_properties_add_bool(props, "script_enabled", "Enable")
 	
 	local s = obs.obs_properties_add_list(props, "source_scene", "Replay Source", obs.OBS_COMBO_TYPE_EDITABLE, obs.OBS_COMBO_FORMAT_STRING)
 	local scenes = obs.obs_frontend_get_scenes()
