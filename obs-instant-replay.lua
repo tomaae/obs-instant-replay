@@ -158,7 +158,7 @@ end
 -- A function named script_description returns the description shown to
 -- the user
 function script_description()
-	return "When the \"Instant Replay\" hotkey is triggered, saves a replay with the replay buffer, and then plays it in a media source as soon as the replay is ready.  Requires an active replay buffer.\n\nMade by Jim"
+	return "When the \"Instant Replay\" hotkey is triggered, saves a replay from the replay buffer, and then plays it in a media source as soon as the replay is ready.\nRequires an active replay buffer."
 end
 
 -- A function named script_properties defines the properties that the user
@@ -168,7 +168,7 @@ function script_properties()
 	
 	obs.obs_properties_add_bool(props, "script_enabled", "Enable")
 	
-	local s = obs.obs_properties_add_list(props, "source_scene", "Replay Source", obs.OBS_COMBO_TYPE_EDITABLE, obs.OBS_COMBO_FORMAT_STRING)
+	local s = obs.obs_properties_add_list(props, "source_scene", "Replay Scene", obs.OBS_COMBO_TYPE_EDITABLE, obs.OBS_COMBO_FORMAT_STRING)
 	local scenes = obs.obs_frontend_get_scenes()
 	if scenes ~= nil then
 		for _, scene in ipairs(scenes) do
