@@ -7,7 +7,7 @@ Optionally, you can let viewers trigger instant replay using a chat command (Scr
 *OBS Instant Replay is based on instant-replay.lua script provided by OBS*
 
 # OBS Instant replay installation
-1. Copy file to OBS scripts directory
+1. Copy file to OBS scripts directory  
 (1) Copy "obs-instant-replay.lua" into OBS scripts directory (Usually "C:\Program Files (x86)\obs-studio\data\obs-plugins\frontend-tools\scripts\")  
 
 2. Add script to OBS  
@@ -63,8 +63,8 @@ In OBS Settings under "Hotkeys":
 ![Configure script](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_scripts_config.png)
 
 # Streamlabs Chatbot script installation
-*Streamlabs Chatbot script is used only to let viewers/moderators trigger replay. If you do not require this functionality, you will not need this.*
-1. Copy files Streamlabs Chatbot scripts directory
+*Streamlabs Chatbot script is used only to let viewers/moderators trigger replay. If you do not require this functionality, you will not need this.*  
+1. Copy files Streamlabs Chatbot scripts directory  
 (1) Copy directory "obs-instant-replay-streamlabs-chatbot" into Streamlabs Chatbot scripts directory "%APPDATA%\Streamlabs\Streamlabs Chatbot\Services\Scripts\"  
 
 2. Enable and configure OBS Instant Replay script  
