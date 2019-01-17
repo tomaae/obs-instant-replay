@@ -16,6 +16,13 @@
         "type": "slider", 
         "value": 30.0
     }, 
+    "Info": {
+        "group": "Core", 
+        "label": "Info", 
+        "tooltip": "This field should only be filled when using the user_specific permission.", 
+        "type": "textbox", 
+        "value": ""
+    }, 
     "Permission": {
         "group": "Core", 
         "items": [
@@ -29,13 +36,6 @@
         "tooltip": "Who is able to use the command", 
         "type": "dropdown", 
         "value": "moderator"
-    },
-    "Info": {
-        "group": "Core", 
-        "label": "Info", 
-        "tooltip": "This field should only be filled when using the user_specific permission.", 
-        "type": "textbox", 
-        "value": ""
     }, 
     "output_file": "settings.json"
 }

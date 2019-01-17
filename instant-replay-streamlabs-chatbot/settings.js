@@ -1,6 +1,6 @@
 ﻿var settings = {
+  "Cooldown": 30.0,
   "Command": "!replay",
-  "Cooldown": 30,
   "Permission": "moderator",
   "Info": ""
 };

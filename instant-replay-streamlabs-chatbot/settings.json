@@ -1,6 +1,6 @@
 ﻿{
-  "Command": "!replay",
-  "Cooldown": 30,
-  "Permission": "moderator",
-  "Info": ""
+    "Info": "", 
+    "Command": "!replay", 
+    "Permission": "moderator", 
+    "Cooldown": 30.0
 }

@@ -15,42 +15,44 @@ ScriptName = "OBS Instant Replay"
 Description = "Streamlabs Chatbot addon for OBS instant-replay"
 Creator = "Tomaae"
 Website = ""
-Version = "1.0.0.0"
+Version = "1.0.0.1"
+
+settingsfile = os.path.join(os.path.dirname(__file__), "settings.json")
 
 #---------------------------
 #   Settings Handling
 #---------------------------
 class Settings:
-	def __init__(self):
-		self.settingsfile = os.path.join(os.path.dirname(__file__), "settings.json")
+	def __init__(self, settingsfile):
 		try:
-			with codecs.open(self.settingsfile, encoding="utf-8-sig", mode="r") as f:
+			with codecs.open(settingsfile, encoding="utf-8-sig", mode="r") as f:
 				self.__dict__ = json.load(f, encoding="utf-8")
 		except:
 			self.Command = "!replay"
 			self.Cooldown = 30
 			self.Permission = "moderator"
 			self.Info = ""
-			
 		return
 
 	def Reload(self, jsondata):
 		self.__dict__ = json.loads(jsondata, encoding="utf-8")
 		return
 
-	def Save(self):
+	def Save(self, settingsfile):
 		try:
-			with codecs.open(self.settingsfile, encoding="utf-8-sig", mode="w+") as f:
-				json.dump(self.__dict__, f, encoding="utf-8")
-		except:
-			Parent.Log(ScriptName, "Failed to save settings to file.")
+			with codecs.open(settingsfile, encoding="utf-8-sig", mode="w+") as f:
+				json.dump(self.__dict__, f, encoding="utf-8", indent=4)
+		except Exception as err:
+			Parent.Log(ScriptName, "Failed to save settings to file. {0}".format(err))
+		finally:
+			UpdatedUi()
 		return
 
 #---------------------------
 #   Define Global Variables
 #---------------------------
 global ScriptSettings
-ScriptSettings = Settings()
+ScriptSettings = Settings(settingsfile)
 
 
 #---------------------------
@@ -59,7 +61,7 @@ ScriptSettings = Settings()
 def Init():
 	# Load settings
 	global ScriptSettings
-	ScriptSettings = Settings()
+	ScriptSettings = Settings(settingsfile)
 
 	return
 
@@ -102,7 +104,7 @@ def Parse(parseString, userid, username, targetid, targetname, message):
 #---------------------------
 def ReloadSettings(jsonData):
 	ScriptSettings.Reload(jsonData)
-	ScriptSettings.Save()
+	ScriptSettings.Save(settingsfile)
 	return
 
 #---------------------------
@@ -117,23 +119,24 @@ def Unload():
 def ScriptToggled(state):
 	return
 
-def UpatedUi():
-	ui = {}
-	UiFilePath = os.path.join(os.path.dirname(__file__), "UI_Config.json")
-	try:
-		with codecs.open(UiFilePath, encoding="utf-8-sig", mode="r") as f:
-			ui = json.load(f, encoding="utf-8")
-	except Exception as err:
-		Parent.Log(ScriptName, "{0}".format(err))
+def UpdatedUi():
+   ui = {}
+   Parent.Log(ScriptName, "Test")
+   UiFilePath = os.path.join(os.path.dirname(__file__), "UI_Config.json")
+   try:
+      with codecs.open(UiFilePath, encoding="utf-8-sig", mode="r") as f:
+         ui = json.load(f, encoding="utf-8")
+   except Exception as err:
+      Parent.Log(ScriptName, "{0}".format(err))
 
-	# update ui with loaded settings
-	ui['Command']['value'] = ScriptSettings.Command
-	ui['Cooldown']['value'] = ScriptSettings.Cooldown
-	ui['Permission']['value'] = ScriptSettings.Permission
-	ui['Info']['value'] = ScriptSettings.Info
+   # update ui with loaded settings
+   ui['Command']['value'] = ScriptSettings.Command
+   ui['Cooldown']['value'] = ScriptSettings.Cooldown
+   ui['Permission']['value'] = ScriptSettings.Permission
+   ui['Info']['value'] = ScriptSettings.Info
 
-	try:
-		with codecs.open(UiFilePath, encoding="utf-8-sig", mode="w+") as f:
-			json.dump(ui, f, encoding="utf-8", indent=4, sort_keys=True)
-	except Exception as err:
-		Parent.Log(ScriptName, "{0}".format(err))
+   try:
+      with codecs.open(UiFilePath, encoding="utf-8-sig", mode="w+") as f:
+         json.dump(ui, f, encoding="utf-8", indent=4, sort_keys=True)
+   except Exception as err:
+      Parent.Log(ScriptName, "{0}".format(err))
