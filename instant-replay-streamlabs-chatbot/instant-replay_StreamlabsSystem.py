@@ -121,7 +121,6 @@ def ScriptToggled(state):
 
 def UpdatedUi():
    ui = {}
-   Parent.Log(ScriptName, "Test")
    UiFilePath = os.path.join(os.path.dirname(__file__), "UI_Config.json")
    try:
       with codecs.open(UiFilePath, encoding="utf-8-sig", mode="r") as f:
