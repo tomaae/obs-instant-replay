@@ -16,19 +16,19 @@ function show_replay(visible)
 	else
 		replaying = false
 	end
+	
 	local scenes = obs.obs_frontend_get_scenes()
 	if scenes ~= nil then
 		for _, scene in ipairs(scenes) do
 			if obs.obs_source_get_name(scene) == source_scene_name then
-				scene = obs.obs_scene_from_source(scene)
-				local items = obs.obs_scene_enum_items(scene)
+				replay_scene = obs.obs_scene_from_source(scene)
+				local items = obs.obs_scene_enum_items(replay_scene)
 				for _,item in ipairs(items) do
 					if item ~= nil then
-						scene_source = obs.obs_sceneitem_get_source(item)
-						local sceneItem = obs.obs_scene_find_sceneitem_by_id(scene, obs.obs_sceneitem_get_id(item))
-						obs.obs_sceneitem_set_visible(sceneItem, visible)
+						obs.obs_sceneitem_set_visible(item, visible)
 					end
 				end
+				obs.sceneitem_list_release(items)
 			end
 		end
 	end
@@ -45,15 +45,6 @@ function stop_replay()
   	show_replay(false)
   	obs.remove_current_callback()
   end
-  
---	local source = obs.obs_get_source_by_name(source_name)
---	if source ~= nil then
---		settings = obs.obs_source_get_settings(source)
---		obs.script_log(obs.LOG_WARNING,obs.obs_data_get_string(settings, "local_file"))
---		obs.obs_data_save_json(settings, 'd:\\json')
---		obs.obs_data_release(settings)
---		obs.obs_source_release(source)
---	end
 end
 
 -- Play replay
@@ -64,7 +55,9 @@ function try_play()
 		obs.remove_current_callback()
 		return
 	end
+	
 	show_replay(true)
+	
 	-- Call the procedure of the replay buffer named "get_last_replay" to
 	-- get the last replay created by the replay buffer
 	local cd = obs.calldata_create()
