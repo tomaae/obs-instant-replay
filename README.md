@@ -63,10 +63,11 @@ In OBS Settings under "Hotkeys":
 ![Configure script](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_scripts_config.png)
 
 # Instant Replay Standalone Triggering configuration
-1. Prepare standalone triggering
-(1) Download and install Python 3.7
-(2) Navigate into "instant-replay-standalone" directory
-(3) Rename file "settings.json.template" to "settings.json"
+*Instant Replay Standalone Triggering script is used only to let viewers/moderators trigger replay. If you do not require this functionality, you will not need this.*
+1. Prepare standalone triggering  
+(1) Download and install Python 3.7  
+(2) Navigate into "instant-replay-standalone" directory  
+(3) Rename file "settings.json.template" to "settings.json"  
 
 2. Configure standalone triggering
 (1) Edit "settings.json"
