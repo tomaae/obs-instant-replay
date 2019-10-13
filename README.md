@@ -2,7 +2,7 @@
 ![OBS Instant Replay Preview](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_preview.PNG)
 
 OBS Instant Replay is a script for Open Broadcaster Software which allows you to display *Instant Replay* as customizable Picture-in-Picture.  
-Optionally, you can let viewers trigger instant replay using a chat command (Script for *Streamlabs Chatbot* included).  
+Optionally, you can let viewers trigger instant replay using a chat command (Standalone script and Script for *Streamlabs Chatbot* included).  
 
 *OBS Instant Replay is based on instant-replay.lua script provided by OBS*
 
@@ -62,6 +62,43 @@ In OBS Settings under "Hotkeys":
 *After applying settings, all sources in "Replay" scene will become invisible.*  
 ![Configure script](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_scripts_config.png)
 
+# Instant Replay Standalone Triggering configuration
+1. Prepare standalone triggering
+(1) Download and install Python 3.7
+(2) Navigate into "instant-replay-standalone" directory
+(3) Rename file "settings.json.template" to "settings.json"
+
+2. Configure standalone triggering
+(1) Edit "settings.json"
+
+```
+{
+    "Command": "!replay",
+    "Permission": "",
+    "Cooldown": 30.0,
+    "TwitchChannel": "",
+    "TwitchOAUTH": ""
+}
+```
+- **Command** Command to trigger a replay (default: !replay)
+- **Permission** Configure who can trigger a replay
+  - **"broadcaster"** - Broadcaster only
+  - **"moderator"** - Moderators and Broadcaster
+  - **"subscriber"** - Subscribers, Moderators and Broadcaster
+  - **""** - Everyone
+- **Cooldown** Command cooldown in seconds (default: 30)
+- **TwitchChannel** Channel name.
+- **TwitchOAUTH** How to obtain a Twitch OAUTH: <a href="https://www.twitchapps.com/tmi/" target="_blank">www.twitchapps.com/tmi/</a>.
+
+
+3. Set Hotkey in OBS  
+In OBS Settings under "Hotkeys":  
+(1) Press "+" sign next to "OBS Instant Replay" to create new entry  
+(2) Click into new empty box created right under "OBS Instant Replay" and start "instant-replay-setup.exe"  
+![OBS Hotkey for Chatbot](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_slcb_hotkey.PNG)
+
+4. Run "instant-replay-standalone.cmd"
+
 # Streamlabs Chatbot script installation
 *Streamlabs Chatbot script is used only to let viewers/moderators trigger replay. If you do not require this functionality, you will not need this.*  
 1. Copy files Streamlabs Chatbot scripts directory  
@@ -73,7 +110,7 @@ In OBS Settings under "Hotkeys":
 
 3. Configuring Streamlabs Chatbot to use scripts  
 *This step is only needed for first time script setup. If you used scripts withing Chatbot before, it will be already set up.*  
-(1) Download and install Python 2.7  
+(1) Download and install Python 2.7
 (2) Within settings, browse to Python\Lib directory  
 (3) If your API Key is not generated yet, generate it  
 ![Chatbot Settings](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/slcb_settings.PNG)
@@ -81,5 +118,5 @@ In OBS Settings under "Hotkeys":
 4. Set Hotkey in OBS  
 In OBS Settings under "Hotkeys":  
 (1) Press "+" sign next to "OBS Instant Replay" to create new entry  
-(2) Click into new empty box created right under "OBS Instant Replay" and start "instant-replay.exe"  
+(2) Click into new empty box created right under "OBS Instant Replay" and start "instant-replay-setup.exe"  
 ![OBS Hotkey for Chatbot](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_slcb_hotkey.PNG)

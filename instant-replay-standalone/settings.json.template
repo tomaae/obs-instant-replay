@@ -1,0 +1,7 @@
+﻿{
+    "Command": "!replay", 
+    "Permission": "", 
+    "Cooldown": 30.0,
+    "TwitchChannel": "",
+    "TwitchOAUTH": ""
+}
