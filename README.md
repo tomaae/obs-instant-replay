@@ -69,7 +69,7 @@ In OBS Settings under "Hotkeys":
 (2) Navigate into "instant-replay-standalone" directory  
 (3) Rename file "settings.json.template" to "settings.json"  
 
-2. Configure standalone triggering
+2. Configure standalone triggering  
 (1) Edit "settings.json"
 
 ```
@@ -98,7 +98,7 @@ In OBS Settings under "Hotkeys":
 (2) Click into new empty box created right under "OBS Instant Replay" and start "instant-replay-setup.exe"  
 ![OBS Hotkey for Chatbot](https://raw.githubusercontent.com/tomaae/obs-instant-replay/github-resources/obs_slcb_hotkey.PNG)
 
-4. Run "instant-replay-standalone.cmd"
+4. Run "instant-replay-standalone.cmd"  
 
 # Streamlabs Chatbot script installation
 *Streamlabs Chatbot script is used only to let viewers/moderators trigger replay. If you do not require this functionality, you will not need this.*  
